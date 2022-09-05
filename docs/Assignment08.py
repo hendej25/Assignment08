@@ -44,6 +44,10 @@ class Product:
         self.product_category = product_category
         self.product_description = product_description
 
+    def __str__(self):  # print the product's name, category, price and description
+        formatted_price = str(f'${self.product_price:.2f}') # format price - USD currency format
+        return ','.join([self.product_name, formatted_price, self.product_category, self.product_description])
+
     # -- Properties --
     # product_name (string) with the product's  name
     @property
@@ -207,9 +211,9 @@ class FileProcessor:
                     break
 
             if item_found:  # set function status equal to status message
-                status = str(f'{name} was successfully removed from the menu.')
+                status = str(f'{name.title()} was successfully removed from the product list.')
             else:
-                status = str(f'{name} was not on the menu, so nothing was removed.')
+                status = str(f'{name} was not on the product list, so nothing was removed.')
         else:  # nothing was entered
             status = ''
 
@@ -314,11 +318,9 @@ class IO:
                 print(category)
                 print("*******************************************")
 
-            print(product.product_name + ' - ' +  # print the product's name, price and description
-                  str(f'${product.product_price:.2f}') + ' - ' +
-                  product.product_description)
+            print(product)  # print the Product's details - name, category, price (USD currency format) and description
 
-            print()  # Add an extra line for looks
+        print()  # Add an extra line for looks
 
     @staticmethod
     def input_new_product():
