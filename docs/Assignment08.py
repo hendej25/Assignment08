@@ -45,7 +45,7 @@ class Product:
         self.product_description = product_description
 
     def __str__(self):  # print the product's name, category, price and description
-        formatted_price = str(f'${self.product_price:.2f}') # format price - USD currency format
+        formatted_price = str(f'${self.product_price:.2f}')  # format price - USD currency format
         return ','.join([self.product_name, formatted_price, self.product_category, self.product_description])
 
     # -- Properties --
