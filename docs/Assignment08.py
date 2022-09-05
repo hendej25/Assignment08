@@ -26,7 +26,7 @@ class Product:
         product_price: (float) with the product's standard price \n
         product_category: (string) with the product's category \n
         product_description: (string) with the product's description \n
-    methods:  \n
+    methods: to_string(): -> (string) with the product's details (name, price, category, and description） \n
     changelog: (When,Who,What)
         RRoot,1.1.2030,Created Class  \n
         James Henderson,08.30.2022,Modified class code
@@ -43,10 +43,6 @@ class Product:
         self.product_price = product_price
         self.product_category = product_category
         self.product_description = product_description
-
-    def __str__(self):  # print the product's name, category, price and description
-        formatted_price = str(f'${self.product_price:.2f}')  # format price - USD currency format
-        return ','.join([self.product_name, formatted_price, self.product_category, self.product_description])
 
     # -- Properties --
     # product_name (string) with the product's  name
@@ -101,6 +97,15 @@ class Product:
             self.__product_description_str = value
         except ValueError:
             pass
+
+    # explicit method of __str__
+    def to_string(self):
+        return self.__str__()
+
+    # implicitly returns current product details
+    def __str__(self):  # print the product's name, category, price and description
+        formatted_price = str(f'${self.product_price:.2f}')  # format price - USD currency format
+        return ','.join([self.product_name, formatted_price, self.product_category, self.product_description])
 
 
 # Data - End -------------------------------------------------------------------- #
