@@ -492,7 +492,8 @@ while True:
 
             while True:  # prompt user to save the product list to the file
                 try:
-                    choice_str = IO.input_yes_no_choice("Are you sure you want to reload the last saved product list? (y/n) - ")
+                    choice_str = IO.input_yes_no_choice("Are you sure you want to reload the last saved product list?"
+                                                        " (y/n) - ")
                     if choice_str == "y":  # user chooses to reload from the file
                         products_lst, status_str = FileProcessor.read_data_from_file(FILE_NAME_STR)
                         IO.input_press_to_continue(status_str)
